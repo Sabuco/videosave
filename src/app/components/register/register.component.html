@@ -1,0 +1,15 @@
+<div class="col-md-12 mt-3">
+    <h1>{{ pageTitle }}</h1>
+    <hr>
+
+    <form class="col-md-5 ml-0 pl-0" #registerForm="ngForm" (ngSubmit)="onSubmit(registerForm)">
+        <div class="form-group">
+            <label for="name">Nombre</label>
+            <input type="text" name="name" #name="ngModel" [(ngModel)]="user.name" class="form-control" required pattern="^[a-zA-ZÀ-ÿ\u00f1\u00d1]+(\s*[a-zA-ZÀ-ÿ\u00f1\u00d1]*)*[a-zA-ZÀ-ÿ\u00f1\u00d1]+$">
+
+            <small class="invalid-feedback d-block" *ngIf="!name.valid && name.touched">
+                El nombre no es válido
+            </small>
+        </div>
+    </form>
+</div>
